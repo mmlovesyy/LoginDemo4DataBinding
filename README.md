@@ -7,7 +7,8 @@
 <center>
 <img src="logindemo.gif" />
 </center>
-功能很简单：只有当输入用户名和密码的长度都大于 6 时，登录按钮才是可点击的（即 Button 的 enabled 属性为 true）。
+  
+<br />功能很简单：只有当输入用户名和密码的长度都大于 6 时，登录按钮才是可点击的（即 Button 的 enabled 属性为 true）。
 
 工程中共有 2 个 module：
 
