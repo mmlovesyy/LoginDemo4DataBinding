@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.mmlovesyy.databinding.UserViewModel" />
+
+        <variable
+            name="presenter"
+            type="com.mmlovesyy.databinding.Presenter" />
+
+        <import type="android.text.TextUtils" />
+        <import type="android.view.View" />
+
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.prompt}"
+                android:textSize="14sp"
+                android:visibility="@{TextUtils.isEmpty(model.prompt) ? View.GONE : View.VISIBLE}" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:hint="@string/prompt_email"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@={model.email}" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@={model.pwd}" />
+
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:enabled="@{model.email.trim().length() > 6 &amp;&amp; model.pwd.trim().length()> 6}"
+                android:onClick="@{(v) -> presenter.sendClick(v, model)}"
+                android:text="@string/action_sign_in"
+                android:textStyle="bold" />
+
+            <!--android:enabled="@{Validator.isValid(model)}"-->
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
