@@ -10,5 +10,6 @@ public class ActionHandler {
 
     public void sendClick(View view, ViewModel model) {
         Toast.makeText(view.getContext(), view.getResources().getString(R.string.toast), Toast.LENGTH_SHORT).show();
+        model.tips.set(view.getResources().getString(R.string.toast));
     }
 }
