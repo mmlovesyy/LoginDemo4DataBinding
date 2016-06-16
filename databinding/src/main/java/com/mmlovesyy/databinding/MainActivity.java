@@ -13,10 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        UserViewModel user = new UserViewModel(getResources().getString(R.string.prompt));
-        binding.setModel(user);
+        ViewModel model = new ViewModel(getResources().getString(R.string.prompt));
+        binding.setModel(model);
 
-        Presenter presenter = new Presenter();
-        binding.setPresenter(presenter);
+        ActionHandler handler = new ActionHandler();
+        binding.setHandler(handler);
     }
 }

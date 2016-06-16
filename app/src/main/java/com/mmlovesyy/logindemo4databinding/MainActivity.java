@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initViews();
+    }
+
+    private void initViews() {
+
         // find views
         mTipsView = (TextView) findViewById(R.id.tips);
         mEmailView = (EditText) findViewById(R.id.email);
@@ -33,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSendBtn = (Button) findViewById(R.id.email_sign_in_button);
 
         // set value
-        String tips = getResources().getString(R.string.prompt);
+        String tips = getResources().getString(R.string.tips);
         mTipsView.setText(tips);
         mTipsView.setVisibility(TextUtils.isEmpty(tips) ? View.GONE : View.VISIBLE);
 
